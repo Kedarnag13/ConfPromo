@@ -82,7 +82,6 @@ margin-top: 80px;
 .slider-close-btn {
 	font-size:40px !important;position:relative;top:5px;right:-25px;
 }
-h1{
-  font-weight: bold;
-  color: blue;
+.red_color{
+  background-color: red;
 }
