@@ -1,4 +1,8 @@
 function UserValidator() {
+  jQuery.validator.addMethod("alpha", function(value, element) {
+    return this.optional(element) || value == value.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
+  });
+
   $("#new_user").validate({
     debug: true,
     rules: {
@@ -6,7 +10,7 @@ function UserValidator() {
         required:true
       },
       "user[email]": {
-       email: true,
+       alpha: true,
        required: true,
        remote:"/users/check_email"
      },
@@ -23,18 +27,18 @@ function UserValidator() {
 
   messages: {
    "user[user_name]":{
-    required: "Name is required!"
+    required: "Name is required"
   },
   "user[email]": {
-    required: "Email is required!",
-    email: "Please enter a valid E-mail address!",
+    required: "Email is required",
+    alpha: "Please enter a valid E-mail address",
     remote: "Email has been already taken"
   },
   "user[organization]": {
-    required:"Organization is required!"
+    required:"Organization is required"
   },
   "user[designation]": {
-    required: "Designation is required!"
+    required: "Designation is required"
   }
 },
 
