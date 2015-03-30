@@ -2,27 +2,24 @@
     <div class="col-sm-4 col-sm-offset-4">
       <%= form_for @user do |f| %>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Name">
-        <%= f.text_field :user_name,:class=>"form-control",:placeholder=>"Your Name", :id => "capitaln" %>
+        <%= f.text_field :user_name,:class=>"form-control user_name",:placeholder=>"Your Name", :id => "capitaln" %>
       </div>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Email">
-       <%= f.text_field :email,:class=>"form-control",:placeholder=>"Your Email"%>
+       <%= f.text_field :email,:class=>"form-control email",:placeholder=>"Your Email"%>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Organisation">
-       <%= f.text_field :organization,:class=>"form-control",:placeholder=>"Organisation", :id => "capitalo" %>
+       <%= f.text_field :organization,:class=>"form-control organization",:placeholder=>"Organisation", :id => "capitalo" %>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Designation">
-      <%= f.text_field :designation,:class=>"form-control",:placeholder=>"Designation", :id => "capitald" %><br>
+      <%= f.text_field :designation,:class=>"form-control designation",:placeholder=>"Designation", :id => "capitald" %><br>
     </div>
     <div class="form-group btn-margin-top">
       <div class="col-sm-offset-8 col-sm-10">
-        <%= f.submit "submit",:id => "click_disable1",:class => "btn btn-primary btn-margin-right"%>
+        <%= f.submit "submit",:id => "click_disable1",:class => "btn btn-primary btn-margin-right disable_submitButtonId enable_submitButtonId"%>
       </div>
     </div>
     <% end %>
   </div>
-</div>
-<div style="text-align:right">
-  <%= link_to "create question",new_question_path,:class => "btn-primary" %>
 </div>
 <div class="row" style="">
   <div id="demo" class="slider-position">
@@ -70,10 +67,14 @@ $('#capitald').keyup(function(){
   $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
 });
 $(document).ready(function(){
-  $('#click_disable1').click(function(){
-    $('#click_disable1').click(function(e) {
-      e.preventDefault();
-    });
+  $("#click_disable1").click(function(){
+    var val1 = $('.user_name').valid();
+    var val2 = $('.email').valid();
+    var val3 = $('.organization').valid();
+    var val4 = $('.designation').valid();
+    if (val1 && val2 && val3 && val4) {
+      $("#click_disable1").addClass('disabled');
+    }
   });
 });
 </script>
