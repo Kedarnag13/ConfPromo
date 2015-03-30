@@ -20,5 +20,10 @@ end
 
 def individual_result
   @u = User.find_by_email(params[:individual_result][:email])
-  end
+end
+
+def destroy
+  session[:user_id] = nil
+  redirect_to root_path
+end
 end
