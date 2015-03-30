@@ -1,0 +1,22 @@
+<nav class="">
+<div class="container-fluid" id="top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="logo"><%= image_tag "qwnix_logo.png", :alt=>"logo", :class=>"logo" %></a>
+  </div>
+  <div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+  <%= link_to "Sign Out", admin_path(@admin), :method => :delete%></li>
+  <li>
+  <%= link_to "create question",new_question_path%></li>
+  </ul>
+  </div>
+
+</div>
+</nav>
