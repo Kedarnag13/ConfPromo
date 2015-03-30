@@ -10,15 +10,17 @@ class AdminsController < ApplicationController
   end
 end
 
-def show
-  @users = User.all
+def index
+  @admin = User.all
 end
 
-def all_result
+def show
+  @admin=User.find_by_id(params[:id])
   @users = User.all
 end
 
 def individual_result
+  @admin=User.find_by_id(params[:id])
   @u = User.find_by_email(params[:individual_result][:email])
 end
 
