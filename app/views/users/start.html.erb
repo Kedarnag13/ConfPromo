@@ -19,7 +19,10 @@
 </div>
 <div class="col-sm-4">
   <div href="#" class="start" id="timer_start" value = "<%= @user.id %>">
-   <%= link_to 'start', user_path(@user) -%>
+   <%= link_to 'start', user_path(@user) %>
  </div>
 </div>
 </div>
+<script type="text/javascript">$('#timer_start').click(function(){
+    $(this).attr('disabled');
+});</script>
