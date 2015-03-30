@@ -17,10 +17,13 @@
     <% end %>
   </div>
   <div class="btn-margin-top">
-    <%= f.submit $i===20 ? "Submit" : "Next", :class => "btn btn-primary btn-margin-right toggle"%>
+    <%= f.submit $i===20 ? "Submit" : "Next", :class => "btn btn-primary btn-margin-right toggle", :id => "submit_id" %>
   </div>
 </div>
 <% end %>
 <% else %>
 <h1>No Questions</h1>
 <% end %>
+<script type="text/javascript">$('#submit_id').click(function(){
+    $(this).attr('disabled');
+});</script>
