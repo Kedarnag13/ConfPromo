@@ -2,16 +2,16 @@
     <div class="col-sm-4 col-sm-offset-4">
       <%= form_for @user do |f| %>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Name">
-        <%= f.text_field :user_name,:class=>"form-control",:placeholder=>"Your Name" %>
+        <%= f.text_field :user_name,:class=>"form-control",:placeholder=>"Your Name", :id => "capitaln" %>
       </div>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Email">
        <%= f.text_field :email,:class=>"form-control",:placeholder=>"Your Email"%>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Organisation">
-       <%= f.text_field :organization,:class=>"form-control",:placeholder=>"Organisation"%>
+       <%= f.text_field :organization,:class=>"form-control",:placeholder=>"Organisation", :id => "capitalo" %>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Designation">
-      <%= f.text_field :designation,:class=>"form-control",:placeholder=>"Designation"%><br>
+      <%= f.text_field :designation,:class=>"form-control",:placeholder=>"Designation", :id => "capitald" %><br>
     </div>
     <div class="form-group btn-margin-top">
       <div class="col-sm-offset-8 col-sm-10">
@@ -25,7 +25,7 @@
   <%= link_to "create question",new_question_path,:class => "btn-primary" %>
 </div>
 <div class="row" style="">
-<div id="demo" class="slider-position">
+  <div id="demo" class="slider-position">
    <a href="#" class="text-right" style="display:block" onclick="myFunction()" >
     <i class="fa fa-times-circle-o slider-close-btn" ></i>
   </a>
@@ -60,4 +60,13 @@
  function myFunction() {
   document.getElementById("demo").style.display = "none";
 }
+$('#capitaln').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
+$('#capitalo').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
+$('#capitald').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
 </script>
