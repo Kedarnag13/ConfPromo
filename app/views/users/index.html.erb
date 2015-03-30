@@ -69,4 +69,11 @@ $('#capitalo').keyup(function(){
 $('#capitald').keyup(function(){
   $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
 });
+$(document).ready(function(){
+  $('#click_disable1').click(function(){
+    $('#click_disable1').click(function(e) {
+      e.preventDefault();
+    });
+  });
+});
 </script>
