@@ -13,4 +13,7 @@ Name: <%= @u.user_name %><br>Email: <%= @u.email %><br>Designation: <%= @u.desig
   </tr>
   <% end %>
 </table>
-<br>
+<div style="margin-bottom: 40px;font-weight:bold; text-align:right">
+Total correct answers:
+<%= Uanswer.where(user_id: @u.id).where(result: true).count%>
+</div>
