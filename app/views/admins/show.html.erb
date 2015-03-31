@@ -8,7 +8,8 @@
   </tr>
   <% @users.each do |u| %>
   <tr>
-    <td><%= u.user_name %></td>
+  <% @user=u %>
+    <td><%= link_to u.user_name, individual_result_admin_path(user_id: @user, admin_id: @admin.id) %></td>
     <td><%= u.email %></td>
   </tr>
   <% end %>
@@ -16,7 +17,7 @@
 </div><br><br>
   <div class="col-sm-5">
 <h2>Search by Email</h2>
-<%= form_for :individual_result, url: individual_result_admin_path(@admin), :method => :post do |f|%>
+<%= form_for :individual_result, url: individual_result_admin_path(@admin), :method => :get do |f|%>
 <p>
   <%= label_tag :Email %><br>
   <%= f.text_field :email %>
