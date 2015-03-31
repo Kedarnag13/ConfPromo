@@ -1,5 +1,14 @@
-Name: <%= @u.user_name %><br>Email: <%= @u.email %><br>Designation: <%= @u.designation %><br>Organization: <%= @u.organization %><br>
-<table border="1" style="width:100%">
+<div class="col-sm-10">Name: <%= @u.user_name %><br>Email: <%= @u.email %><br>Designation: <%= @u.designation %><br>Organization: <%= @u.organization %>
+<div style="font-weight:bold; text-align:right;margin-right: -180px;">
+Total correct answers:
+<%= Uanswer.where(user_id: @u.id).where(result: true).count%>
+</div></div><br>
+<div class="navbar-right col-sm-5" style="background-color:grey;padding:10px;text-align:center;width: 100px;margin-bottom:20px;">
+<%= link_to "Back", admin_path(@admin)%>
+</div>
+
+
+<table border="1" style="width:100%; margin-bottom: 40px;">
   <tr>
     <th>Question</th>
     <th>Choosen Answer</th>
@@ -13,7 +22,4 @@ Name: <%= @u.user_name %><br>Email: <%= @u.email %><br>Designation: <%= @u.desig
   </tr>
   <% end %>
 </table>
-<div style="margin-bottom: 40px;font-weight:bold; text-align:right">
-Total correct answers:
-<%= Uanswer.where(user_id: @u.id).where(result: true).count%>
-</div>
+

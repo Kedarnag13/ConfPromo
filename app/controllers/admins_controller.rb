@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   layout 'plain'
+  before_filter :admin_login, except: [:index,:check_admin]
   def check_admin
     @user = User.find_by_email(params[:email])
     if @user.present? && (@user.has_role? :Admin)
@@ -10,10 +11,6 @@ class AdminsController < ApplicationController
   end
 end
 
-def index
-  @admin = User.all
-end
-
 def show
   @admin=User.find_by_id(params[:id])
   @users = User.all
@@ -21,11 +18,15 @@ end
 
 def individual_result
   @admin=User.find_by_id(params[:id])
-  @u = User.find_by_email(params[:individual_result][:email])
+  if params[:user_id].present?
+    @u=User.find_by_id(params[:user_id])
+  else
+    @u = User.find_by_email(params[:individual_result][:email])
+  end
 end
 
 def destroy
   session[:user_id] = nil
-  redirect_to root_path
+  redirect_to admins_path
 end
 end
