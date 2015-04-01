@@ -19,7 +19,7 @@
 </div>
 <div class="col-sm-4">
   <div href="#" class="start" id="timer_start" value = "<%= @user.id %>">
-   <%= link_to 'start', user_path(@user) -%>
+   <%= link_to 'start', user_path(@user, question_ids:@question_ids, qwinix_ids: @qwinix) -%>
  </div>
 </div>
 </div>
