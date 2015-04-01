@@ -33,10 +33,10 @@ class UsersController < ApplicationController
     @i += 1
     @question_ids = params[:question_ids]
     @qwinix_ids = params[:qwinix_ids]
-    if @i < 15
+    if @i =< 15
       @question = Question.find_by_id(@question_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
-    elsif @i >= 15 && @i < 20
+    elsif @i > 15 && @i < 20
       @question = Question.find_by_id(@qwinix_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
     else
