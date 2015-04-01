@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :create]
 
   def check_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
       format.json { render :json => !@user  }
+    end
+  end
+  def result_email
+    @user = User.find_by_email(params[:individual_result][:email])
+    respond_to do |format|
+      format.json { render :json => !!@user }
     end
   end
 
