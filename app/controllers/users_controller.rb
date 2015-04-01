@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      $i = 0
+      @@i = 0
       @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
       @@qwinix = Question.all.collect(&:id).last(5)
       redirect_to start_user_path(@user)
@@ -30,10 +30,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if $i < 15
+    if @@i < 15
       @question = Question.find @@question_ids.pop
       @choices = Qchoice.where(question_id: @question.id)
-    elsif $i >= 15 && $i < 20
+    elsif @@i >= 15 && @@i < 20
       @question = Question.find @@qwinix.pop
       @choices = Qchoice.where(question_id: @question.id)
     else
