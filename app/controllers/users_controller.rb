@@ -15,8 +15,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
-      @@qwinix = Question.all.collect(&:id).last(5)
       redirect_to start_user_path(@user)
     else
       render 'index'
@@ -25,17 +23,21 @@ class UsersController < ApplicationController
 
   def start
     @user = User.find(params[:id])
+    @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
+    @qwinix = Question.all.collect(&:id).last(20)
   end
 
   def show
     @user = User.find(params[:id])
     @i = Uanswer.where(user_id: @user.id).count
     @i += 1
+    @question_ids = params[:question_ids]
+    @qwinix_ids = params[:qwinix_ids]
     if @i < 15
-      @question = Question.find @@question_ids.pop
+      @question = Question.find_by_id(@question_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
     elsif @i >= 15 && @i < 20
-      @question = Question.find @@qwinix.pop
+      @question = Question.find_by_id(@qwinix_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
     else
       redirect_to result_user_path
@@ -54,9 +56,16 @@ class UsersController < ApplicationController
         @uanswer.result = false
       end
       @uanswer.save
+    else
+      @uanswer = Uanswer.new
+      @uanswer.question_id = params[:question_id]
+      @uanswer.user_id = params[:user_id]
+      @uanswer.save
     end
+    @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
+    @qwinix = Question.all.collect(&:id).last(20)
     respond_to do |format|
-      format.js { redirect_to user_path}
+      format.js { redirect_to user_path(question_ids:@question_ids, qwinix_ids: @qwinix)}
     end
   end
 
