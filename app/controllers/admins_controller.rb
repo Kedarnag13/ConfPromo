@@ -10,6 +10,12 @@ class AdminsController < ApplicationController
     redirect_to root_path
   end
 end
+def result_email
+    @user = User.find_by_email(params[:individual_result][:email])
+    respond_to do |format|
+      format.json { render :json => !!@user }
+    end
+  end
 
 def show
   @admin=User.find_by_id(params[:id])
