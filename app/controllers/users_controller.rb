@@ -45,6 +45,8 @@ class UsersController < ApplicationController
   end
 
   def check_quiz
+    @question_ids = params[:question_ids]
+    @qwinix_ids = params[:qwinix_ids]
     if params[:uanswer].present?
       @uanswer = Uanswer.new(params.require(:uanswer).permit(:choosen_answer))
       @uanswer.question_id = params[:question_id]
@@ -62,8 +64,6 @@ class UsersController < ApplicationController
       @uanswer.user_id = params[:user_id]
       @uanswer.save
     end
-    @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
-    @qwinix = Question.all.collect(&:id).last(21)
     respond_to do |format|
       format.js { redirect_to user_path(question_ids:@question_ids, qwinix_ids: @qwinix)}
     end
