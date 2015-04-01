@@ -28,12 +28,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @qn += 1
     @user = User.find(params[:id])
-    if @qn < 15
+    @i = Uanswer.where(user_id: @user.id).count
+    @i += 1
+    if @i < 15
       @question = Question.find @@question_ids.pop
       @choices = Qchoice.where(question_id: @question.id)
-    elsif @qn >= 15 && @qn < 20
+    elsif @i >= 15 && @i < 20
       @question = Question.find @@qwinix.pop
       @choices = Qchoice.where(question_id: @question.id)
     else
