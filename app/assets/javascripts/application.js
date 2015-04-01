@@ -18,5 +18,6 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.countdownTimer
+//= require result
 //= require user
 //= require_tree .

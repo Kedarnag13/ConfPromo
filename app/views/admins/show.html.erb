@@ -17,7 +17,7 @@
 </div><br><br>
   <div class="col-sm-5">
 <h2>Search by Email</h2>
-<%= form_for :individual_result, url: individual_result_admin_path(@admin), :method => :get do |f|%>
+<%= form_for :individual_result, url: individual_result_admin_path(@admin), :method => :get, html: {:id => "view_result"} do |f|%>
 <p>
   <%= label_tag :Email %><br>
   <%= f.text_field :email %>
@@ -27,3 +27,6 @@
 </p>
 <% end %>
 </div>
+<script type="text/javascript">
+  ResultValidator()
+</script>
