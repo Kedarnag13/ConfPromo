@@ -2,7 +2,7 @@
 <div class="col-sm-2">
   <div class="quest-num">
     <span>question</span>
-    <div class="number"> <%=  @@i +=1 %> </div>
+    <div class="number"> <%=  @qn%> </div>
   </div>
 </div>
 <%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id), :method => :post,:remote => true do |f|%>
