@@ -5,7 +5,7 @@
     <div class="number"> <%=  @i %> </div>
   </div>
 </div>
-<%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id,question_ids:@question_ids, qwinix_ids: @qwinix), :method => :post,:remote => true do |f|%>
+<%= form_for :uanswer, url: check_quiz_user_path(question_id: @question, user_id: @user.id,question_ids:@question_ids, qwinix_ids: @qwinix_ids), :method => :post,:remote => true do |f|%>
 <div class="col-sm-7">
   <div class="quest-section">
     <div class="question"><%= @question.question %></div>
