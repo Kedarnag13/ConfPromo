@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def start
     @user = User.find(params[:id])
     @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
-    @qwinix = Question.all.collect(&:id).last(20)
+    @qwinix = Question.all.collect(&:id).last(21)
   end
 
   def show
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
       @uanswer.save
     end
     @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
-    @qwinix = Question.all.collect(&:id).last(20)
+    @qwinix = Question.all.collect(&:id).last(21)
     respond_to do |format|
       format.js { redirect_to user_path(question_ids:@question_ids, qwinix_ids: @qwinix)}
     end
