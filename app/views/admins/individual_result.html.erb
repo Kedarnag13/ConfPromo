@@ -10,15 +10,16 @@ Total correct answers:
 
 <table border="1" style="width:100%; margin-bottom: 40px;">
   <tr>
-    <th>Question</th>
-    <th>Choosen Answer</th>
-    <th>Correct Answer</th>
+    <th style="text-align:center;">Question</th>
+    <th style="text-align:center;">Choosen Answer</th>
+    <th style="text-align:center;">Correct Answer</th>
   </tr>
   <% @u.uanswers.each do |ua| %>
   <tr>
     <td><%= Question.find_by_id(ua.question_id).question %></td>
-    <td><%= ua.choosen_answer%></td>
-    <td><%= Question.find_by_id(ua.question_id).answer_id%></td>
+    <% @correct_id = Question.find_by_id(ua.question_id).answer_id%>
+    <td style="text-align:center;"><%= Qchoice.where(question_id:ua.question_id).where(qoption_id: ua.choosen_answer).first.qoption_text %></td>
+    <td style="text-align:center;"><%= Qchoice.where(question_id:ua.question_id).where(qoption_id:@correct_id).first.qoption_text%></td>
   </tr>
   <% end %>
 </table>
