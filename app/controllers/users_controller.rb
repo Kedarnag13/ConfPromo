@@ -23,8 +23,8 @@ class UsersController < ApplicationController
 
   def start
     @user = User.find(params[:id])
-    @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(16)
-    @qwinix_ids = Question.all.collect(&:id).last(21)
+    @question_ids = Question.all.collect(&:id).first(20).shuffle.sample(11)
+    @qwinix_ids = Question.all.collect(&:id).last(16)
   end
 
   def show
@@ -33,10 +33,10 @@ class UsersController < ApplicationController
     @i += 1
     @question_ids = params[:question_ids]
     @qwinix_ids = params[:qwinix_ids]
-    if @i <=15
+    if @i <=10
       @question = Question.find_by_id(@question_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
-    elsif @i > 15 && @i <= 20
+    elsif @i > 10 && @i <= 15
       @question = Question.find_by_id(@qwinix_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
     else
