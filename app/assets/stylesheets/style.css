@@ -1,5 +1,5 @@
 .logo {
-margin: 25px 15px;
+margin: 10px 15px;
 }
 .intro {
 	line-height: 90px;vertical-align: middle;
@@ -80,7 +80,7 @@ margin-top: 70px;
 	position:absolute;top:90px;
 }
 .slider-close-btn {
-	font-size:40px !important;position:relative;top:5px;right:-25px;
+	font-size:30px !important;position:relative;top:5px;right:-20px;
 }
 .red_color{
   background-color: red;
