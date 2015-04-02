@@ -26,42 +26,42 @@
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
-// // DISABLED F5
-// function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
-// $(document).on("keydown", disableF5);
-// // DISABLED cntrl+R
-// $(document).keydown(function(e) {
-//   if (e.keyCode == 82 && e.ctrlKey ){
-//     alert("Function Disabled!");
-//     return false;
-//   }
-// });
-// // MOUSE CLICK DISABLED
-// var message="Function Disabled!";
-// function clickIE4(){
-// 	if (event.button==2){
-// 		alert("Function Disabled!");
-// 		return false;
-// 	}
-// }
-// function clickNS4(e){
-// 	if (document.layers||document.getElementById&&!document.all){
-// 		if (e.which==2||e.which==3){
-// 			alert(message);
-// 			return false;
-// 		}
-// 	}
-// }
-// if (document.layers){
-// 	document.captureEvents(Event.MOUSEDOWN);
-// 	document.onmousedown=clickNS4;
-//   alert(message);
-// }
-// else if (document.all&&!document.getElementById){
-// 	document.onmousedown=clickIE4;
-// }
-// document.oncontextmenu=new Function("alert(message);return false")
-// window.history.forward();function noBack(){window.history.forward();}
+// DISABLED F5
+function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+$(document).on("keydown", disableF5);
+// DISABLED cntrl+R
+$(document).keydown(function(e) {
+  if (e.keyCode == 82 && e.ctrlKey ){
+    alert("Function Disabled!");
+    return false;
+  }
+});
+// MOUSE CLICK DISABLED
+var message="Function Disabled!";
+function clickIE4(){
+	if (event.button==2){
+		alert("Function Disabled!");
+		return false;
+	}
+}
+function clickNS4(e){
+	if (document.layers||document.getElementById&&!document.all){
+		if (e.which==2||e.which==3){
+			alert(message);
+			return false;
+		}
+	}
+}
+if (document.layers){
+	document.captureEvents(Event.MOUSEDOWN);
+	document.onmousedown=clickNS4;
+  alert(message);
+}
+else if (document.all&&!document.getElementById){
+	document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("alert(message);return false")
+window.history.forward();function noBack(){window.history.forward();}
 history.pushState(null, null);
 window.addEventListener('popstate', function(event) {
 history.pushState(null, null);
