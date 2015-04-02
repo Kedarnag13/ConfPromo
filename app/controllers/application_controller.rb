@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   private
   def admin_login
-    unless session[:user_id] == 1
+    unless session[:user_id] == 1 || session[:user_id] == 2
        redirect_to root_path
      end
    end
