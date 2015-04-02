@@ -2,20 +2,20 @@
     <div class="col-sm-4 col-sm-offset-4">
       <%= form_for @user do |f| %>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Name">
-        <%= f.text_field :user_name,:class=>"form-control user_name",:placeholder=>"Your Name", :id => "capitaln" %>
+        <%= f.text_field :user_name,:class=>"form-control user_name",:placeholder=>"What do people call you?", :id => "capitaln" %>
       </div>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Email">
-       <%= f.text_field :email,:class=>"form-control email",:placeholder=>"Your Email"%>
+       <%= f.text_field :email,:class=>"form-control email",:placeholder=>"Your email address?"%>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Organisation">
-       <%= f.text_field :organization,:class=>"form-control organization",:placeholder=>"Organisation", :id => "capitalo" %>
+       <%= f.text_field :organization,:class=>"form-control organization",:placeholder=>"Whom do you work for?", :id => "capitalo" %>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Designation">
-      <%= f.text_field :designation,:class=>"form-control designation",:placeholder=>"Designation", :id => "capitald" %><br>
+      <%= f.text_field :designation,:class=>"form-control designation",:placeholder=>"What are you designated as?", :id => "capitald" %><br>
     </div>
     <div class="form-group btn-margin-top">
       <div class="col-sm-offset-8 col-sm-10">
-        <%= f.submit "submit",:id => "click_disable1",:class => "btn btn-primary btn-margin-right disable_submitButtonId enable_submitButtonId"%>
+        <%= f.submit "continue",:id => "click_disable1",:class => "btn btn-primary btn-margin-right disable_submitButtonId enable_submitButtonId"%>
       </div>
     </div>
     <% end %>
