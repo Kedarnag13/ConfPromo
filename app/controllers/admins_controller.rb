@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   layout 'plain'
-  before_filter :admin_login, except: [:index,:check_admin,:questions]
+  before_filter :admin_login, except: [:index,:check_admin]
   def check_admin
     @user = User.find_by_email(params[:email])
     if @user.present? && (@user.has_role? :Admin)
@@ -15,10 +15,6 @@ def result_email
   respond_to do |format|
     format.json { render :json => !!@user }
   end
-end
-
-def index
-  @admin=User.find_by_id(1)
 end
 
 def show
