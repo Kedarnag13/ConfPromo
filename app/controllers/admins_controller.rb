@@ -11,11 +11,11 @@ class AdminsController < ApplicationController
   end
 end
 def result_email
-    @user = User.find_by_email(params[:individual_result][:email])
-    respond_to do |format|
-      format.json { render :json => !!@user }
-    end
+  @user = User.find_by_email(params[:individual_result][:email])
+  respond_to do |format|
+    format.json { render :json => !!@user }
   end
+end
 
 def show
   @admin=User.find_by_id(params[:id])
@@ -29,6 +29,10 @@ def individual_result
   else
     @u = User.find_by_email(params[:individual_result][:email])
   end
+end
+
+def questions
+  @questions = Question.all
 end
 
 def destroy

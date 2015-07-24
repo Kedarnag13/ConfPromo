@@ -16,6 +16,8 @@
   <%= link_to "Sign Out", admin_path(:id => session[:user_id]), :method => :delete%></li>
   <li style="background-color:grey;margin:20px 20px 0 0;">
   <%= link_to "Create Question",new_question_path%></li>
+  <li style="background-color:grey;margin:20px 20px 0 0;">
+  <%= link_to "All Questions with answers", questions_admin_path(:id => session[:user_id]), :method => :get %></li>
   </ul>
   </div>
   <%end%>
