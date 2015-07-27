@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :admins do
     member do
       get 'individual_result'
+      get 'questions'
     end
   end
   resources :questions do

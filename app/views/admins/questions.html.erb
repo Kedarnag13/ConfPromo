@@ -1,0 +1,9 @@
+<% @questions.each do |q| %>
+<h3><% q.question %></h3><br><br>
+<% @choices = Qchoice.where(question_id: q.id)%>
+<% @choices.each do |c| %>
+<p><%c.qoption_text%></p><br>
+<% end %>
+<% @answer = Qchoice.find_by_id(q.answer_id)%>
+<p>Answer: <%@answer%></p><br><br><br><br>
+<% end %>
