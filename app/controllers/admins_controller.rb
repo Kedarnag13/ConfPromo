@@ -33,6 +33,7 @@ end
 
 def questions
   @questions = Question.all
+  @i = 0
 end
 
 def destroy
