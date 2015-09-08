@@ -1,7 +1,7 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: interactive_forum_prod
+  database: confpromo_prod
   pool: 10
   username: postgres
   password: password
