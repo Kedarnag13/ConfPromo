@@ -2,70 +2,79 @@
     <div class="col-sm-4 col-sm-offset-4">
       <%= form_for @user do |f| %>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Name">
-        <%= f.text_field :user_name,:class=>"form-control",:placeholder=>"Your Name" %>
+        <%= f.text_field :user_name,:class=>"form-control user_name",:placeholder=>"What do people call you?", :id => "capitaln" %>
       </div>
       <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Email">
-       <%= f.text_field :email,:class=>"form-control",:placeholder=>"Your Email"%>
+       <%= f.text_field :email,:class=>"form-control email",:placeholder=>"Your email address?"%>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Organisation">
-       <%= f.text_field :organization,:class=>"form-control",:placeholder=>"Organisation"%>
+       <%= f.text_field :organization,:class=>"form-control organization",:placeholder=>"Whom do you work for?", :id => "capitalo" %>
      </div>
      <div class="form-group" data-toggle ="tooltip" data-placement= "left" title="Enter Your Designation">
-      <%= f.text_field :designation,:class=>"form-control",:placeholder=>"Designation"%><br>
+      <%= f.text_field :designation,:class=>"form-control designation",:placeholder=>"What are you designated as?", :id => "capitald" %><br>
     </div>
     <div class="form-group btn-margin-top">
       <div class="col-sm-offset-8 col-sm-10">
-        <%= f.submit "submit",:id => "click_disable1",:class => "btn btn-primary btn-margin-right"%>
+        <%= f.submit "continue",:id => "click_disable1", :style=>"padding-left: 13px;", :class => "btn btn-primary btn-margin-right disable_submitButtonId enable_submitButtonId"%>
       </div>
     </div>
     <% end %>
   </div>
 </div>
-<div style="text-align:right">
-  <%= link_to "create question",new_question_path,:class => "btn-primary" %>
-</div>
 <div class="row" style="">
-  <div  id="demo" class="slider-position">
+  <div id="demo" class="slider-position">
    <a href="#" class="text-right" style="display:block" onclick="myFunction()" >
-      <i class="fa fa-times-circle-o slider-close-btn" ></i>
-   </a>
-    <div data-ride="carousel" class="carousel slide" id="carousel-example-generic" style="height:400px;">
-      <ol class="carousel-indicators">
-        <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
-        <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
-        <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
-        <li data-slide-to="3" data-target="#carousel-example-generic" class=""></li>
-      </ol>
-      <div role="listbox" class="carousel-inner" style="height:400px;">
-          <div class="item active" data-holder-rendered="true">
-            <%= image_tag "slider/banner02.jpg", :alt=>"First slide"%>
-          </div>
-          <div class="item" data-holder-rendered="true">
-            <%= image_tag "slider/banner03.jpg", :alt=>"Second slide "%>
-          </div>
-          <div class="item" data-holder-rendered="true">
-            <%= image_tag "slider/banner04.jpg", :alt=>"Third slide "%>
-          </div>
-          <div class="item" data-holder-rendered="true">
-           <%= image_tag "slider/banner05.jpg", :alt=>"Fourth slide "%>
-         </div>
+    <i class="fa fa-times-circle-o slider-close-btn" ></i>
+  </a>
+  <div data-ride="carousel" class="carousel slide" id="carousel-example-generic" style="height:400px;">
+    <ol class="carousel-indicators">
+      <li class="active" data-slide-to="0" data-target="#carousel-example-generic"></li>
+      <li data-slide-to="1" data-target="#carousel-example-generic" class=""></li>
+      <li data-slide-to="2" data-target="#carousel-example-generic" class=""></li>
+      <li data-slide-to="3" data-target="#carousel-example-generic" class=""></li>
+    </ol>
+    <div role="listbox" class="carousel-inner" style="height:400px;">
+      <div class="item active" data-holder-rendered="true">
+        <%= image_tag "slider/banner02.jpg", :alt=>"First slide"%>
       </div>
-      <a data-slide="prev" role="button" href="#carousel-example-generic" class="left carousel-control">
-        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a data-slide="next" role="button" href="#carousel-example-generic" class="right carousel-control">
-        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
+      <div class="item" data-holder-rendered="true">
+        <%= image_tag "slider/banner03.jpg", :alt=>"Second slide "%>
+      </div>
+      <div class="item" data-holder-rendered="true">
+        <%= image_tag "slider/banner04.jpg", :alt=>"Third slide "%>
+      </div>
+      <div class="item" data-holder-rendered="true">
+       <%= image_tag "slider/banner05.jpg", :alt=>"Fourth slide "%>
+     </div>
+   </div>
+ </div>
+</div>
 </div>
 
 
 <script>
  UserValidator();
-  function myFunction() {
-    document.getElementById("demo").style.display = "none";
-  }
+ function myFunction() {
+  document.getElementById("demo").style.display = "none";
+}
+$('#capitaln').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
+$('#capitalo').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
+$('#capitald').keyup(function(){
+  $(this).val($(this).val().charAt(0).toUpperCase()+ $(this).val().slice(1));
+});
+$(document).ready(function(){
+  $("#click_disable1").click(function(){
+    var val1 = $('.user_name').valid();
+    var val2 = $('.email').valid();
+    var val3 = $('.organization').valid();
+    var val4 = $('.designation').valid();
+    if (val1 && val2 && val3 && val4) {
+      $("#click_disable1").addClass('disabled');
+    }
+  });
+});
 </script>

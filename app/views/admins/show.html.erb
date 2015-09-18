@@ -1,9 +1,32 @@
-<% @i=0 %>
-<% @users.each do |u| %>
-<%= @i +=1%>.Name: <%= u.user_name %><br>Organization: <%= u.organization %><br>
-<% u.uanswers.each do |ua| %>
-Question: <%= Question.find_by_id(ua.question_id).question %>
-Choosen Answer: <%= ua.choosen_answer%>
-Correct Answer: <%= Question.find_by_id(ua.question_id).answer_id%><br>
-<% end %><br>
+
+<div class="col-sm-7">
+<h2 style="width:100%; text-align:center;">List of all users</h2>
+<table border="1" style="width:100%; text-align:center;margin-bottom: 40px;">
+  <tr>
+    <th style="text-align:center;">User Name</th>
+    <th style="text-align:center;">Email</th>
+  </tr>
+  <% @users.each do |u| %>
+  <tr>
+  <% @user=u %>
+    <td><%= link_to u.user_name, individual_result_admin_path(user_id: @user, admin_id: @admin.id) %></td>
+    <td><%= u.email %></td>
+  </tr>
+  <% end %>
+</table>
+</div><br><br>
+  <div class="col-sm-5">
+<h2>Search by Email</h2>
+<%= form_for :individual_result, url: individual_result_admin_path(@admin), :method => :get, html: {:id => "view_result"} do |f|%>
+<p>
+  <%= label_tag :Email %><br>
+  <%= f.text_field :email %>
+</p>
+<p>
+  <%= f.submit "ok" %>
+</p>
 <% end %>
+</div>
+<script type="text/javascript">
+  ResultValidator()
+</script>

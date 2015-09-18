@@ -1,19 +1,25 @@
 <div id="result">
-  <% if @result >= 12 %>
+  <% if @result >= 7 %>
   <div href="#" class="winner text-center">
     Winner &nbsp;&nbsp;&nbsp;<i class="fa fa-thumbs-o-up"></i>
   </div>
   <div class="wish-msg">
-   Congrats <span><%= @user.user_name%></span>Please collect your goodies!
+  Wow!! you are brilliant :) <br>
+   Congrats <span><%= @user.user_name%></span>, please collect your goodie at Qwinix stall
  </div>
  <% else %>
- <div href="#" class="winner text-center">
- Thanks for Playing.
+ <div class="winner text-center" style="background-color:#A60000;">
+ Thanks for Playing
  </div>
  <div class="wish-msg">
+ Booh! No Goodie :( <br>
+ Your correct answers: <%= @result %><br>
+You can win a goodie only with minimum of 7 correct answers
  </div>
  <% end %>
 </div>
+<br>
+<br>
 <div style="margin-left:1000px;">
   <%= link_to "Home", root_path,:class=> " btn btn-primary" %>
 </div>

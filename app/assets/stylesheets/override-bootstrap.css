@@ -1,6 +1,6 @@
 body {
-  font-family: 'Titillium Web', sans-serif;
-  color: #222222;font-weight: 400;font-size: 16px;
+	font-family: 'Titillium Web', sans-serif;
+	color: #222222;font-weight: 400;font-size: 16px;
   background-image: url("body-bg-one.jpg");
   background-position: top left;
   background-repeat: no-repeat;
@@ -9,37 +9,37 @@ body {
   background-color: #E9E9E9;
 }
 a {
-  color: #222222;
+	color: #222222;
 }
 a:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 .thin {
-  font-weight: 300;
+	font-weight: 300;
 }
 .form-control {
-  height: 45px;color: #222222;border: 1px solid #777777; border-radius: 2px;
+	height: 45px;color: #222222;border: 1px solid #777777; border-radius: 2px;
   font-size: 16px;
 }
 .form-control:focus {
-  border-color: #666461;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(119, 119, 119, .6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(119, 119, 119, .6);
+	border-color: #666461;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(119, 119, 119, .6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(119, 119, 119, .6);
 }
 .form-control::-moz-placeholder {
-  color: #999999;
-  opacity: 1;
+	color: #999999;
+	opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #999999;
+	color: #999999;
 }
 .form-control::-webkit-input-placeholder {
-  color: #999999;
+	color: #999999;
 }
 .btn {
-  padding: 10px 20px;border-radius: 2px;
-  text-transform: uppercase;font-weight: 600;width: 100px;
+	padding: 10px 20px;border-radius: 2px;
+	text-transform: uppercase;font-weight: 600;width: 100px;
 }
 .btn-primary {
   color: #fff;
@@ -57,7 +57,7 @@ a:hover {
   border-color: #E9694E;
 }
 .tooltip {
-  font-family: 'Titillium Web', sans-serif;font-size: 14px;
+	font-family: 'Titillium Web', sans-serif;font-size: 14px;
 }
 .tooltip-inner {
   padding: 6px 16px;
@@ -128,43 +128,34 @@ a:hover {
   border-color: #4d4d4d;
 }
 .navbar a {
-  color: #fff;
+	color: #fff;
 }*/
 footer {
-  position: absolute;bottom: 0;height: 60px;width: 100%;
+	position: absolute;bottom: 0;height: 60px;width: 100%;
   background-image: url("footer-bg-one.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #E9E9E9;
 color: #fff;text-align: right;
 }
+/*Custom Radio button */
+
 input[type="radio"] {
     display:none;
 }
 input[type="radio"] + label {
-    color: $DarkBrown;
     font-family:Arial, sans-serif;
-    font-size:14px;
+    font-size:14px;font-weight: normal;
 }
 input[type="radio"] + label span {
     display:inline-block;
     width:19px;
     height:19px;
-    margin:-1px 4px 0 0;
+    margin:-4px 4px 0 0;
     vertical-align:middle;
     cursor:pointer;
     -moz-border-radius:  50%;
     border-radius:  50%;
-}
-
-input[type="radio"] + label span {
-     background-color:#C2C2C2;
-}
-
-input[type="radio"]:checked + label span{
-     background-color:#46B973;
-}
-
 }
 
 input[type="radio"] + label span {
@@ -184,5 +175,5 @@ input[type="radio"]:checked + label span {
 }
 
 label.normal {
-  font-size: 16px;font-weight: 400;
+	font-size: 16px;font-weight: 400;
 }

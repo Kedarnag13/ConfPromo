@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   get 'users/check_email' => 'users#check_email'
+  get 'admins/result_email' => 'admins#result_email'
   resources :users do
     member do
     get 'user_question'
@@ -10,7 +11,12 @@ Rails.application.routes.draw do
   end
   end
   post 'admins/check_admin' => 'admins#check_admin'
-  resources :admins
+  resources :admins do
+    member do
+      get 'individual_result'
+      get 'questions'
+    end
+  end
   resources :questions do
     resources :qchoices
   end

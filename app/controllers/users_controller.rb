@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :create]
-
   def check_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
@@ -16,9 +15,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      $i = 0
-      @@question_ids = Question.all.collect(&:id).first(20).shuffle.sample(15)
-      @@qwinix = Question.all.collect(&:id).last(5)
       redirect_to start_user_path(@user)
     else
       render 'index'
@@ -27,15 +23,21 @@ class UsersController < ApplicationController
 
   def start
     @user = User.find(params[:id])
+    @question_ids = Question.all.collect(&:id).first(52).shuffle.sample(13)
+    @qwinix_ids = Question.all.collect(&:id).last(16)
   end
 
   def show
     @user = User.find(params[:id])
-    if $i < 15
-      @question = Question.find @@question_ids.pop
+    @i = Uanswer.where(user_id: @user.id).count
+    @i += 1
+    @question_ids = params[:question_ids]
+    @qwinix_ids = params[:qwinix_ids]
+    if @i <=12
+      @question = Question.find_by_id(@question_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
-    elsif $i >= 15 && $i < 20
-      @question = Question.find @@qwinix.pop
+    elsif @i > 12 && @i <= 15
+      @question = Question.find_by_id(@qwinix_ids[@i])
       @choices = Qchoice.where(question_id: @question.id)
     else
       redirect_to result_user_path
@@ -43,6 +45,8 @@ class UsersController < ApplicationController
   end
 
   def check_quiz
+    @question_ids = params[:question_ids]
+    @qwinix_ids = params[:qwinix_ids]
     if params[:uanswer].present?
       @uanswer = Uanswer.new(params.require(:uanswer).permit(:choosen_answer))
       @uanswer.question_id = params[:question_id]
@@ -54,9 +58,14 @@ class UsersController < ApplicationController
         @uanswer.result = false
       end
       @uanswer.save
+    else
+      @uanswer = Uanswer.new
+      @uanswer.question_id = params[:question_id]
+      @uanswer.user_id = params[:user_id]
+      @uanswer.save
     end
     respond_to do |format|
-      format.js { redirect_to user_path}
+      format.js { redirect_to user_path(question_ids:@question_ids, qwinix_ids: @qwinix_ids)}
     end
   end
 

@@ -3,7 +3,7 @@
   <div class="timer">
     <div class="row">
       <div class="col-sm-5 text-center">
-        <div>03 </div>
+        <div>04 </div>
       </div>
       <div class="col-sm-2"> : </div>
       <div class="col-sm-5"> 00</div>
@@ -19,7 +19,12 @@
 </div>
 <div class="col-sm-4">
   <div href="#" class="start" id="timer_start" value = "<%= @user.id %>">
-   <%= link_to 'start &nbsp;&nbsp;&nbsp;''<i class="fa fa-angle-right arrow-icon"></i>'.html_safe,user_path(@user) -%>
+   <%= link_to 'start', user_path(@user, question_ids:@question_ids, qwinix_ids: @qwinix_ids) -%>
  </div>
 </div>
 </div>
+<div class="wish-msg">
+  You have 15 questions to answer
+ </div>
+
+

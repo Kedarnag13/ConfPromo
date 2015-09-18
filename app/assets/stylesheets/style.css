@@ -1,5 +1,5 @@
 .logo {
-margin: 25px 15px;
+margin: 10px 15px;
 }
 .intro {
 	line-height: 90px;vertical-align: middle;
@@ -11,10 +11,10 @@ margin: 25px 15px;
 	border :1px solid #E9694E;
 }
 .btn-margin-top {
-	margin-top: 40px;
+	margin-top: 0px;
 }
 .start {
- background-color: #46B973;padding: 20px 40px;font-size: 60px;text-transform: uppercase;
+ background-color: #46B973;padding: 20px 40px;font-size: 60px;text-transform: uppercase;text-align: center;
 }
 .start a{
 color: #fff;
@@ -24,7 +24,7 @@ color: #fff;
 }
 @font-face {
 	font-family: "digital-timer";
-	src:url("assets/DS-DIGI.TTF");
+	src:url("DS-DIGI.TTF");
 }
 .timer {
 	font-family: digital-timer;color: #fff;
@@ -74,11 +74,14 @@ font-family: digital-timer;color: #fff;text-align: center;
 min-height: 225px;
 }
 .contet-area-margin {
-margin-top: 80px;
+margin-top: 70px;
 }
 .slider-position {
-	position:absolute;top:110px;
+	position:absolute;top:90px;
 }
 .slider-close-btn {
-	font-size:40px !important;position:relative;top:5px;right:-25px;
+	font-size:30px !important;position:relative;top:5px;right:-20px;
+}
+.red_color{
+  background-color: red;
 }

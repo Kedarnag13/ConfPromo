@@ -1,44 +1,26 @@
-function UserValidator() {
+function ResultValidator() {
   jQuery.validator.addMethod("alpha", function(value, element) {
     return this.optional(element) || value == value.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
   });
 
-  $("#new_user").validate({
+  $("#view_result").validate({
     debug: true,
     rules: {
-      "user[user_name]": {
-        required:true
-      },
-      "user[email]": {
+      "individual_result[email]": {
        alpha: true,
        required: true,
-       remote:"/users/check_email"
-     },
-     "user[organization]" : {
-      required: true
-    },
-    "user[designation]": {
-      required:true
-    }
+       remote:"/admins/result_email"
+     }
   },
 
   errorElement: "span",
   errorClass: "help-block",
 
   messages: {
-   "user[user_name]":{
-    required: "Name is required"
-  },
-  "user[email]": {
+  "individual_result[email]": {
     required: "Email is required",
     alpha: "Please enter a valid E-mail address",
-    remote: "Email has been already taken"
-  },
-  "user[organization]": {
-    required:"Organization is required"
-  },
-  "user[designation]": {
-    required: "Designation is required"
+    remote: "Email does not exists"
   }
 },
 

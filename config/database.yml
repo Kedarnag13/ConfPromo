@@ -1,13 +1,12 @@
 production:
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
   adapter: postgresql
   encoding: unicode
-  reconnect: false
-  pool: 5
+  database: confpromo_prod
+  pool: 10
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
 
 development:
   adapter: postgresql
@@ -16,7 +15,7 @@ development:
   database: quiz_development
   pool: 5
   username: postgres
-  password: athukuthubale8
+  password: sharmila
   host: localhost
   port: 5432
 
@@ -27,7 +26,6 @@ test:
   database: quiz_test
   pool: 5
   username: postgres
-  password: athukuthubale8
+  password: sharmila
   host: localhost
   port: 5432
-

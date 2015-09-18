@@ -1,1 +1,1 @@
-$(".container").html("<%= escape_javascript(render(:partial=>'/users/result', :locals=>{:user => @user,:result=>@result})) %>");
+$(".result").html("<%= escape_javascript(render(:partial=>'/users/result', :locals=>{:user => @user,:result=>@result})) %>");

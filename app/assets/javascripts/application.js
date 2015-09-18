@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
@@ -19,5 +18,6 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.countdownTimer
+//= require result
 //= require user
 //= require_tree .
